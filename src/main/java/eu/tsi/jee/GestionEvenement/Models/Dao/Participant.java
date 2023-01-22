@@ -22,8 +22,8 @@ public class Participant {
     private String date_naiss;
     @Column(name="entreprise",nullable = false)
     private String entreprise;
-    @Column(name="observateur",nullable = false)
-    private String observateur;
+    @Column(name="observation",nullable = false)
+    private String observation;
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Evenement evenement;
@@ -37,7 +37,7 @@ public class Participant {
         this.mail = mail;
         this.date_naiss = date_naiss;
         this.entreprise = entreprise;
-        this.observateur = observateur;
+        this.observation = observateur;
         this.evenement = evenement;
     }
 
@@ -89,12 +89,12 @@ public class Participant {
         this.entreprise = entreprise;
     }
 
-    public String getObservateur() {
-        return observateur;
+    public String getObservation() {
+        return observation;
     }
 
-    public void setObservateur(String observateur) {
-        this.observateur = observateur;
+    public void setObservation(String observateur) {
+        this.observation = observateur;
     }
 
     public Evenement getEvenement() {
@@ -110,12 +110,12 @@ public class Participant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Participant that = (Participant) o;
-        return id == that.id && Objects.equals(nom, that.nom) && Objects.equals(prenom, that.prenom) && Objects.equals(mail, that.mail) && Objects.equals(date_naiss, that.date_naiss) && Objects.equals(entreprise, that.entreprise) && Objects.equals(observateur, that.observateur) && Objects.equals(evenement, that.evenement);
+        return id == that.id && Objects.equals(nom, that.nom) && Objects.equals(prenom, that.prenom) && Objects.equals(mail, that.mail) && Objects.equals(date_naiss, that.date_naiss) && Objects.equals(entreprise, that.entreprise) && Objects.equals(observation, that.observation) && Objects.equals(evenement, that.evenement);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, prenom, mail, date_naiss, entreprise, observateur, evenement);
+        return Objects.hash(id, nom, prenom, mail, date_naiss, entreprise, observation, evenement);
     }
 
     @Override
@@ -127,7 +127,7 @@ public class Participant {
                 ", mail='" + mail + '\'' +
                 ", date_naiss='" + date_naiss + '\'' +
                 ", entreprise='" + entreprise + '\'' +
-                ", observateur='" + observateur + '\'' +
+                ", observateur='" + observation + '\'' +
                 ", evenement=" + evenement +
                 '}';
     }
