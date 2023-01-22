@@ -1,9 +1,10 @@
 package eu.tsi.jee.GestionEvenement.Models.Repertories;
 
-import eu.tsi.jee.GestionEvenement.Models.Dao.Evenement;
+
+import eu.tsi.jee.GestionEvenement.Models.Dao.Login;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EvenementRepo extends CrudRepository<Evenement, Long> {
+public interface LoginRepo extends CrudRepository<Login, Long> {
 }
