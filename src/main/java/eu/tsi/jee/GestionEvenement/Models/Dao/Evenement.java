@@ -48,6 +48,10 @@ public class Evenement {
         this.participant = new ArrayList<>();
     }
 
+    public void setParticipant(Participant participant){
+        this.participant.add(participant);
+    }
+
     public long getId() {
         return id;
     }

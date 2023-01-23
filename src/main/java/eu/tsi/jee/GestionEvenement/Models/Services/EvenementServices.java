@@ -1,6 +1,7 @@
 package eu.tsi.jee.GestionEvenement.Models.Services;
 
 import eu.tsi.jee.GestionEvenement.Models.Dao.Evenement;
+import eu.tsi.jee.GestionEvenement.Models.Dao.Participant;
 import eu.tsi.jee.GestionEvenement.Models.Repertories.EvenementRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,9 @@ public class EvenementServices {
         }
     }
 
-    public boolean update(Evenement newEvenement,long id){
+    public boolean update(Evenement newEvenement,int id){
         try{
-            Evenement evenement = repository.findById(id).get();
+            Evenement evenement = repository.findById((long)id).get();
             evenement.setTitre(newEvenement.getTitre());
             evenement.setDescription(newEvenement.getDescription());
             evenement.setDate(newEvenement.getDate());
@@ -31,6 +32,16 @@ public class EvenementServices {
             evenement.setMaxpart(newEvenement.getMaxpart());
             evenement.setOrganisateur(newEvenement.getOrganisateur());
             evenement.setType_event(newEvenement.getType_event());
+            repository.save(evenement);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
+    }
+
+    public boolean addParticipant(Participant participant,long id){
+        try{
+            this.getById(id).setParticipant(participant);
             return true;
         }catch (Exception err){
             return false;
