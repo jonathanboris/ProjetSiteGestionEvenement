@@ -1,6 +1,7 @@
 package eu.tsi.jee.GestionEvenement.Controllers;
 
 import eu.tsi.jee.GestionEvenement.Models.Dao.Evenement;
+import eu.tsi.jee.GestionEvenement.Models.Dao.Participant;
 import eu.tsi.jee.GestionEvenement.Models.Services.EvenementServices;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class EvenementController {
 
 
     @GetMapping("/evenement")
-    public String addEvenemt( Model model){
+    public String goEvenenement( Model model){
         return "evenement";
     }
     @PostMapping("/evenement/create")
     @ResponseBody
-    public ResponseEntity addEvenemt(@RequestParam(name = "titre",required = false) String titre,
+    public ResponseEntity addEvenementt(@RequestParam(name = "titre",required = false) String titre,
                                              @RequestParam(name = "date",required = false) String date,
                                              @RequestParam(name = "duree",required = false) double duree,
                                              @RequestParam(name = "max_part",required = false) int max_part,
@@ -93,7 +94,21 @@ public class EvenementController {
             List<Evenement> evenementList = evenementServices.getAll();
             model.addAttribute("evenements",evenementList);
             System.out.println(evenementList.toString());
-            return new ResponseEntity(evenementList, HttpStatus.OK);
+            return new ResponseEntity(evenementList.toString(), HttpStatus.OK);
+
+        }catch (Exception err){
+            return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+    @GetMapping("/evenement/getId")
+    @ResponseBody
+    public ResponseEntity getevenement(
+            @RequestParam(name = "id",required = false) long id,
+            Model model){
+        try{
+            Evenement evenement = evenementServices.getById(id);
+
+            return new ResponseEntity(evenement.toString(), HttpStatus.OK);
 
         }catch (Exception err){
             return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);

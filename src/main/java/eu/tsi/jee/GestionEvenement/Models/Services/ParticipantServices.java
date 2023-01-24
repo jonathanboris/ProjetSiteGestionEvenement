@@ -32,6 +32,7 @@ public class ParticipantServices {
             participant.setEvenement(newParticipant.getEvenement());
             participant.setMail(newParticipant.getMail());
             participant.setObservation(newParticipant.getObservation());
+            repository.save(participant);
             return true;
         }catch (Exception err){
             return false;

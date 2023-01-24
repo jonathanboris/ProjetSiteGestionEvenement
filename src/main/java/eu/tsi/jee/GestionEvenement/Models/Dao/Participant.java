@@ -120,15 +120,14 @@ public class Participant {
 
     @Override
     public String toString() {
-        return "Participant{" +
+        return "{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", mail='" + mail + '\'' +
                 ", date_naiss='" + date_naiss + '\'' +
                 ", entreprise='" + entreprise + '\'' +
-                ", observateur='" + observation + '\'' +
-                ", evenement=" + evenement +
+                ", observateur='" + observation + '\''+
                 '}';
     }
 }

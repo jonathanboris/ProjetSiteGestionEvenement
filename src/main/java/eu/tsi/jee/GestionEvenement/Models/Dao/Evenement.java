@@ -139,7 +139,7 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" +
+        return "{" +
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", date='" + date + '\'' +
