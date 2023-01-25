@@ -1,5 +1,6 @@
 package eu.tsi.jee.GestionEvenement.Controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.tsi.jee.GestionEvenement.Models.Dao.Evenement;
 import eu.tsi.jee.GestionEvenement.Models.Dao.Participant;
 import eu.tsi.jee.GestionEvenement.Models.Services.EvenementServices;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -94,8 +96,9 @@ public class ParticipantController {
     public ResponseEntity getparticipants(Model model){
         try{
             List<Participant> participantList = participantServices.getAll();
-            System.out.println(participantList.toString());
-            return new ResponseEntity(participantList.toString(), HttpStatus.OK);
+            ObjectMapper objectMapper=new ObjectMapper();
+            List<HashMap> dataAsMap = objectMapper.readValue(participantList.toString(), List.class);
+            return new ResponseEntity(dataAsMap, HttpStatus.OK);
 
         }catch (Exception err){
             return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);
@@ -108,8 +111,9 @@ public class ParticipantController {
             Model model){
         try{
             Participant participant = participantServices.getById(id);
-
-            return new ResponseEntity(participant.toString(), HttpStatus.OK);
+            ObjectMapper objectMapper=new ObjectMapper();
+            List<HashMap> dataAsMap = objectMapper.readValue("["+participant.toString()+"]", List.class);
+            return new ResponseEntity(dataAsMap, HttpStatus.OK);
 
         }catch (Exception err){
             return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);

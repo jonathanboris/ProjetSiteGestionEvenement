@@ -120,14 +120,22 @@ public class Participant {
 
     @Override
     public String toString() {
-        return "{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", mail='" + mail + '\'' +
-                ", date_naiss='" + date_naiss + '\'' +
-                ", entreprise='" + entreprise + '\'' +
-                ", observateur='" + observation + '\''+
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("{\"id\" :");
+        builder.append(id);
+        builder.append(", \"nom\" :\"");
+        builder.append(nom);
+        builder.append("\", \"prenom\" :\"");
+        builder.append(prenom);
+        builder.append("\", \"mail\" :\"");
+        builder.append(mail);
+        builder.append("\", \"date_naiss\" :\"");
+        builder.append(date_naiss);
+        builder.append("\", \"entreprise\" :\"");
+        builder.append(entreprise);
+        builder.append("\", \"observation\" :\"");
+        builder.append(observation);
+        builder.append("\"}");
+        return builder.toString();
     }
 }

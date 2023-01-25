@@ -1,8 +1,11 @@
 package eu.tsi.jee.GestionEvenement.Controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.tsi.jee.GestionEvenement.Models.Dao.Evenement;
 import eu.tsi.jee.GestionEvenement.Models.Dao.Participant;
 import eu.tsi.jee.GestionEvenement.Models.Services.EvenementServices;
+import org.apache.tomcat.util.json.JSONParser;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,8 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 
 @Controller
@@ -93,8 +97,9 @@ public class EvenementController {
         try{
             List<Evenement> evenementList = evenementServices.getAll();
             model.addAttribute("evenements",evenementList);
-            System.out.println(evenementList.toString());
-            return new ResponseEntity(evenementList.toString(), HttpStatus.OK);
+            ObjectMapper objectMapper=new ObjectMapper();
+            List<HashMap> dataAsMap = objectMapper.readValue(evenementList.toString(), List.class);
+            return new ResponseEntity(dataAsMap, HttpStatus.OK);
 
         }catch (Exception err){
             return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);
@@ -107,8 +112,9 @@ public class EvenementController {
             Model model){
         try{
             Evenement evenement = evenementServices.getById(id);
-
-            return new ResponseEntity(evenement.toString(), HttpStatus.OK);
+            ObjectMapper objectMapper=new ObjectMapper();
+            List<HashMap> dataAsMap = objectMapper.readValue("["+evenement.toString()+"]", List.class);
+            return new ResponseEntity(dataAsMap, HttpStatus.OK);
 
         }catch (Exception err){
             return new ResponseEntity("{\"status\" :"+err+"}", HttpStatus.EXPECTATION_FAILED);

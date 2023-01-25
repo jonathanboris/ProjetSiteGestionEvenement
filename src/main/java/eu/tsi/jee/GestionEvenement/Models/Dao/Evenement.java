@@ -139,16 +139,26 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "{" +
-                "id=" + id +
-                ", titre='" + titre + '\'' +
-                ", date='" + date + '\'' +
-                ", duree=" + duree +
-                ", maxpart=" + maxpart +
-                ", description='" + description + '\'' +
-                ", organisateur='" + organisateur + '\'' +
-                ", type_event='" + type_event + '\'' +
-                ", participant=" + participant +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("{\"id\" :");
+        builder.append(id);
+        builder.append(", \"titre\" :\"");
+        builder.append(titre);
+        builder.append("\", \"date\" :\"");
+        builder.append(date);
+        builder.append("\", \"duree\" :");
+        builder.append(duree);
+        builder.append(", \"maxpart\" :");
+        builder.append(maxpart);
+        builder.append(", \"description\" :\"");
+        builder.append(description);
+        builder.append("\", \"organisateur\" :\"");
+        builder.append(organisateur);
+        builder.append("\", \"type_event\" :\"");
+        builder.append(type_event);
+        builder.append("\", \"participants\" :");
+        builder.append(participant);
+        builder.append("}");
+        return builder.toString();
     }
 }
