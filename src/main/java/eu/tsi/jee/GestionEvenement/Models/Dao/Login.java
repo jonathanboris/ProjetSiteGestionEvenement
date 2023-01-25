@@ -119,15 +119,24 @@ public class Login {
 
     @Override
     public String toString() {
-        return "Login{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", privilege='" + privilege + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", create_date='" + create_date + '\'' +
-                ", last_connection='" + last_connection + '\'' +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("{\"id\" :");
+        builder.append(id);
+        builder.append(", \"nom\" :\"");
+        builder.append(nom);
+        builder.append("\", \"prenom\" :\"");
+        builder.append(prenom);
+        builder.append("\", \"privilege\" :\"");
+        builder.append(privilege);
+        builder.append("\", \"login\" :\"");
+        builder.append(login);
+        builder.append("\", \"password\" :\"");
+        builder.append(password);
+        builder.append("\", \"create_date\" :\"");
+        builder.append(create_date);
+        builder.append("\", \"last_connection\" :\"");
+        builder.append(last_connection);
+        builder.append("\"}");
+        return builder.toString();
     }
 }
