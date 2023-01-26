@@ -80,10 +80,12 @@ public class ParticipantController {
 
     @PostMapping("/participant/delete")
     @ResponseBody
-    public ResponseEntity deleteParticipant(@RequestParam(name = "id",required = false) long id,
+    public ResponseEntity deleteParticipant(
+            @RequestParam(name = "idEvent",required = false) long idEvent,
+            @RequestParam(name = "id",required = false) long id,
                                           Model model){
         try{
-           participantServices.delete(id);
+           participantServices.delete(idEvent,id);
             return new ResponseEntity("{\"status\" : \"OK\"}", HttpStatus.OK);
 
         }catch (Exception err){

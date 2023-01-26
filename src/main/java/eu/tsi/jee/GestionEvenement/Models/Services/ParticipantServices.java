@@ -13,6 +13,9 @@ public class ParticipantServices {
     @Autowired
     private ParticipantRepo repository;
 
+    @Autowired
+    EvenementServices evenementServices;
+
     public boolean create(Participant participant){
         try{
             repository.save(participant);
@@ -48,9 +51,10 @@ public class ParticipantServices {
         return repository.findById(id).get();
     }
 
-    public boolean delete(long id){
+    public boolean delete(long evtid,long id){
         try{
             Participant participant = repository.findById(id).get();
+            evenementServices.deleteParticipant(evtid,participant);
             repository.delete(participant);
             return true;
         }catch (Exception err){

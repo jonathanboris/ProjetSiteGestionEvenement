@@ -124,6 +124,10 @@ public class Evenement {
         this.participant = participant;
     }
 
+    public void deleteParticipant(Participant participant){
+        this.participant.remove(participant);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

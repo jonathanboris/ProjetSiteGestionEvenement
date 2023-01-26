@@ -66,4 +66,15 @@ public class EvenementServices {
             return false;
         }
     }
+
+    public boolean deleteParticipant(long idEv,Participant participant){
+        try{
+            Evenement evenement = repository.findById(idEv).get();
+            evenement.deleteParticipant(participant);
+            repository.save(evenement);
+            return true;
+        }catch (Exception err){
+            return false;
+        }
+    }
 }
