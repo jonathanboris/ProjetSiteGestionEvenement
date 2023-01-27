@@ -1,0 +1,114 @@
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+#header{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 20vh;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0 0 5px inset;
+}
+
+#header > #navig1{
+    position: absolute;
+    right: 1px;
+    top: 15vh;
+}
+
+#header h2{
+    position: absolute;
+    left: 35%;
+    top: 5vh;
+}
+#header #navig1 ul{
+    list-style: none;
+}
+
+#header #navig1 ul li{
+    display: inline;
+    margin-right: 5px;
+}
+
+#header #navig1 ul a {
+    text-decoration: none;
+    color: black;
+}
+
+#header .active2{
+    color: blueviolet !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#container{
+    width: 100%;
+    height: 70vh;
+    background-color: rgb(238, 238, 238);
+    overflow-y: auto;
+    padding-top: 15vh;
+}
+
+#container > #navig2{
+    position: absolute;
+    left: 1px;
+    top: 25vh;
+}
+
+#container h4{
+    position:absolute;
+    left: 0;
+    top: 20vh;
+    
+}
+#container #navig2 ul{
+    list-style: none;
+
+}
+
+#container #navig2 ul li{
+    display: inline;
+    margin-right: 5px;
+}
+
+#container #navig2 ul a {
+    text-decoration: none;
+    color: black;
+}
+#container .active{
+    color: blueviolet !important;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#evCreate{
+width: 100%;
+height: 100%;
+}
+
+#evMod{
+    width: 100%;
+    height: 100%;
+}
+
+#evView{
+    width: 100%;
+    height: 100%;
+}
+
+#footer{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0 0 5px inset;
+}
+
+#footer #copyright{
+    position: absolute;
+    left: 40%;
+    bottom: 3vh;
+}
+

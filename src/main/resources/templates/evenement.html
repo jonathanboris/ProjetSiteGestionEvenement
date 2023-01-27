@@ -1,13 +1,92 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>EventManager</title>
+    <title>Event Manager Pro</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "../static/styles/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "../static/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "../static/bootstrap/css/bootstrap.min.css" type = "text/css" />
+
+    <script src="../static/js/jquery.js"></script>
 </head>
 <body>
-<p id="title">Welcome</p>
-<script src="../static/javascripts/index.js"></script>
+<div id="header">
+    <h2>EVENT MANAGER PRO</h2>
+    <div id="navig1">
+        <ul>
+            <a href="#"><li class="nav1 active2" id="evLink">EVENT</li></a>
+            <a href="#"><li class="nav1" id="partLink">PARTICIPANT</li></a>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <h4>Events</h4>
+    <div id="navig2">
+        <ul>
+            <a href="#"><li class="nav active" id="navCreate">Create</li></a>
+             <a href="#"><li class="nav" id="navMod">Modify</li></a>
+             <a href="#"><li class="nav" id="navView">View</li></a>
+        </ul>
+    </div>
+    
+        <div id="evCreate">
+           
+           <form class="col g-3" id="evCreatForm" method="post" action="#">
+            <h5>Event creation</h5>
+            <div class="row-auto">
+              <label for="evTitle" class="form-label">Titre</label>
+              <input type="text" class="form-control" id="evTitle">
+            </div>
+            <div class="row-auto">
+              <label for="evDate" class="form-label">Date</label>
+              <input type="text" class="form-control" id="evDate" placeholder="">
+            </div>
+            <div class="row-auto">
+                <label for="evDuree" class="form-label">Duree</label>
+                <input type="text" class="form-control" id="evDuree" placeholder="">
+              </div>
+              <div class="row-auto">
+                <label for="evMaxpart" class="form-label">Maximun participant</label>
+                <input type="number" class="form-control" id="evMaxpart" placeholder="">
+              </div>
+              <div class="row-auto">
+                <label for="evOrga" class="form-label">Organisation</label>
+                <input type="text" class="form-control" id="evOrga" placeholder="">
+              </div>
+              <div class="row-auto">
+                <label for="evTypeev" class="form-label">Type evenement</label>
+                <select class="form-select" aria-label="Default select example" id="evTypeev">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+              </div>
+              <div class="row-auto">
+                <label for="evDesc" class="form-label">Description</label>
+                <textarea class="form-control" id="evDesc" rows="3"></textarea>
+              </div>
+              <br/>
+            <div class="row-auto">
+              <button type="submit" class="btn btn-primary mb-3">Upload</button>
+            </div>
+          </form>
+        </div>
+        <div id="evMod">
+            
+        </div>
+        <div id="evView">
+            
+        </div>
+    
+    
+</div>
+<div id="footer">
+    <span id="copyright">&copy;Copyright TSI ENSG</span>
+</div>
+
+<script src="../static/js/evenement.js"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

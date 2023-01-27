@@ -1,13 +1,52 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>EventManager</title>
+    <title>Event Manager Pro</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "../static/styles/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/bootstrap/css/bootstrap.min.css" type = "text/css" />
+
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
-<p id="title">Welcome</p>
-<script src="../static/javascripts/index.js"></script>
+<div id="header">
+    <h2>EVENT MANAGER PRO</h2>
+    <div id="navig1">
+        <ul>
+            <a href="#"><li class="nav1 active2" id="evLink">EVENT</li></a>
+            <a href="#"><li class="nav1" id="partLink">PARTICIPANT</li></a>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <h4>Events</h4>
+    <div id="navig2">
+        <ul>
+            <a href="#"><li class="nav active" id="navCreate">Create</li></a>
+             <a href="#"><li class="nav" id="navMod">Modify</li></a>
+             <a href="#"><li class="nav" id="navView">View</li></a>
+        </ul>
+    </div>
+    
+        <div id="evCreate">
+            Create
+        </div>
+        <div id="evMod">
+            Mod
+        </div>
+        <div id="evView">
+            View
+        </div>
+    
+    
+</div>
+<div id="footer">
+    <span id="copyright">&copy;Copyright TSI ENSG</span>
+</div>
+
+<script src="/js/evenement.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>
