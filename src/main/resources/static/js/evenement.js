@@ -15,9 +15,11 @@ $(document).ready(function() {
    const containerModDiv = $('#evMod')
    const containerViewDiv = $('#evView')
 
+//intial hide sections
    containerModDiv.hide()
    containerViewDiv.hide()
-   
+//navigation controllers
+
    navModDiv.click(function(){
     navActive.removeClass('active')
     $(this).addClass('active')
@@ -43,7 +45,77 @@ $(document).ready(function() {
    
    })
 
+   // create event
 
    
 
-});
+   const createSubmitBtn = $('#evUpload');
+   const successAlert = $('.succesalert')
+   const errorAlert = $('.erroralert')
+   const container = $('#container');
+
+successAlert.hide();
+errorAlert.hide()
+
+   createSubmitBtn.click((e)=>{
+   
+    e.preventDefault();
+
+   const createEventTitre = $('#evTitle').val();
+   const createEventDate = $('#evDate').val();
+   const createEventDuree= $('#evDuree').val();
+   const createEventMaxPart= $('#evMaxpart').val();
+   const createEventOrga = $('#evOrga').val();
+   const createEventTypeEvent = $('#evTypeev').val();
+   const createEventDesc = $('#evDesc').val();
+
+    
+    console.log(createEventTitre,createEventDuree,createEventMaxPart)
+    
+    const query = "evenement/create"
+    const url = "http://localhost:8080/"+query
+    const params = {
+        titre:createEventTitre, 
+        date:createEventDate  ,
+        duree:createEventDuree,
+        max_part:createEventMaxPart,
+        desc:createEventDesc,
+        org:createEventOrga,
+        type_event:createEventTypeEvent
+
+        }
+    
+$.ajax({
+    type: "POST",
+    url: url,
+    data: params,
+    success: function(response){
+        const form = $('#evCreatForm');
+       
+	container.animate({
+		scrollTop: 20
+	});
+        successAlert.show()
+        console.log(response)
+        setTimeout(()=>{
+            successAlert.hide()
+        },5000)
+        form.each(function(){
+            this.reset();
+        });
+    },
+    error:function(err){
+        errorAlert.show()
+        container.animate({
+            scrollTop: 20
+        });
+        setTimeout(()=>{
+            errorAlert.hide()
+        },5000)
+          console.log(err)
+    },
+  });
+   
+})
+
+})

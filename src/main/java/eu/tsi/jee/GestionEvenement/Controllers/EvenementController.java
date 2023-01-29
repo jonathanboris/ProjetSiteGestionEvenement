@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @Controller
 public class EvenementController {
 
@@ -34,6 +34,7 @@ public class EvenementController {
         return "evenement";
     }
     @PostMapping("/evenement/create")
+
     @ResponseBody
     public ResponseEntity addEvenementt(@RequestParam(name = "titre",required = false) String titre,
                                              @RequestParam(name = "date",required = false) String date,
@@ -43,6 +44,7 @@ public class EvenementController {
                                              @RequestParam(name = "org",required = false) String organisation,
                                              @RequestParam(name = "type_event",required = false) String type_event,
                                              Model model){
+
         Evenement evenement = new Evenement(titre,date,duree,max_part,description,organisation,type_event);
         try{
             evenementServices.create(evenement);

@@ -28,38 +28,45 @@ charset=UTF-8" />
              <a href="#"><li class="nav" id="navView">View</li></a>
         </ul>
     </div>
-    
+    <!-- Create part-->
         <div id="evCreate">
-           
+        
+              <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+                your event is <strong>saved!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+                your event <strong>failed!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
            <form class="col g-3" id="evCreatForm" method="post" action="#">
             <h5>Event creation</h5>
             <div class="row-auto">
               <label for="evTitle" class="form-label">Titre</label>
-              <input type="text" class="form-control" id="evTitle">
+              <input type="text" class="form-control" id="evTitle" required>
             </div>
             <div class="row-auto">
               <label for="evDate" class="form-label">Date</label>
-              <input type="text" class="form-control" id="evDate" placeholder="">
+              <input type="date" class="form-control" id="evDate" placeholder="" required>
             </div>
             <div class="row-auto">
-                <label for="evDuree" class="form-label">Duree</label>
-                <input type="text" class="form-control" id="evDuree" placeholder="">
+                <label for="evDuree" class="form-label">Duree en heure</label>
+                <input type="number" class="form-control" id="evDuree">
               </div>
               <div class="row-auto">
                 <label for="evMaxpart" class="form-label">Maximun participant</label>
-                <input type="number" class="form-control" id="evMaxpart" placeholder="">
+                <input type="number" class="form-control" id="evMaxpart">
               </div>
               <div class="row-auto">
                 <label for="evOrga" class="form-label">Organisation</label>
-                <input type="text" class="form-control" id="evOrga" placeholder="">
+                <input type="text" class="form-control" id="evOrga" placeholder="" required>
               </div>
               <div class="row-auto">
                 <label for="evTypeev" class="form-label">Type evenement</label>
                 <select class="form-select" aria-label="Default select example" id="evTypeev">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="forum" selected>Forum</option>
+                    <option value="networking">Networking</option>
+                    <option value="formation">Formation</option>
                   </select>
               </div>
               <div class="row-auto">
@@ -68,18 +75,146 @@ charset=UTF-8" />
               </div>
               <br/>
             <div class="row-auto">
-              <button type="submit" class="btn btn-primary mb-3">Upload</button>
+              <button type="button" class="btn btn-primary mb-3" id="evUpload">Upload</button>
             </div>
           </form>
         </div>
+
+<!-- Modify part-->
+
         <div id="evMod">
-            
-        </div>
+            <form class="col g-3" id="evCreatForm" method="post" action="#">
+                <h5>Event Modification</h5>
+                <div class="row-auto">
+                    <label for="evModTypeev" class="form-label">Select event</label>
+                    <select class="form-select" aria-label="Default select example" id="evModTypeev" required>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                <div class="row-auto">
+                  <label for="evModTitle" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="evModTitle">
+                </div>
+                <div class="row-auto">
+                  <label for="evModDate" class="form-label">Date</label>
+                  <input type="text" class="form-control" id="evModDate" placeholder="">
+                </div>
+                <div class="row-auto">
+                    <label for="evModDuree" class="form-label">Duree</label>
+                    <input type="text" class="form-control" id="evModDuree" placeholder="">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModMaxpart" class="form-label">Maximun participant</label>
+                    <input type="number" class="form-control" id="evModMaxpart" placeholder="">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModOrga" class="form-label">Organisation</label>
+                    <input type="text" class="form-control" id="evModOrga" placeholder="">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModTypeev" class="form-label">Type evenement</label>
+                    <select class="form-select" aria-label="Default select example" id="evModTypeev">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModDesc" class="form-label">Description</label>
+                    <textarea class="form-control" id="evModDesc" rows="3"></textarea>
+                  </div>
+                  <br/>
+                <div class="row-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Update</button>
+                  <button type="submit" class="btn btn-danger mb-3">Delete</button>
+                </div>
+              </form>
+            </div>
+        
+
+
+<!-- View part-->
         <div id="evView">
-            
-        </div>
-    
-    
+            <table class="table evTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>  
+</div>
 </div>
 <div id="footer">
     <span id="copyright">&copy;Copyright TSI ENSG</span>
