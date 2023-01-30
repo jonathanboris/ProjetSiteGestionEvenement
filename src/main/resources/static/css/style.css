@@ -118,6 +118,11 @@ height: 100%;
     width: 60%;
     margin-left: 20%;
 }
+
+.deletealert{
+    width: 60%;
+    margin-left: 20%;
+}
 /* footer styling*/
 #footer{
     width: 100%;

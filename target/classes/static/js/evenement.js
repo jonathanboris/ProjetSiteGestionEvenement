@@ -26,6 +26,25 @@ $(document).ready(function() {
     containerCreateDiv.hide()
     containerViewDiv.hide()
     containerModDiv.show()
+
+    //initialize event list
+    const query = "evenement/liste"
+    const url = "http://localhost:8080/"+query
+    const params = {
+
+        }
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: params,
+        success: function(response){
+            console.log(response)
+        },
+        error:function(err){
+            
+        }
+      });
+
    })
 
    navCreateDiv.click(function(){
@@ -47,6 +66,22 @@ $(document).ready(function() {
 
    // create event
 
+   
+
+   const createSubmitBtn = $('#evUpload')
+   const successAlert = $('.succesalert')
+   const deleteAlert  = $('.deletealert')
+   const errorAlert = $('.erroralert')
+   const container = $('#container');
+
+successAlert.hide();
+errorAlert.hide()
+deleteAlert.hide()
+
+   createSubmitBtn.click((e)=>{
+   
+    e.preventDefault();
+
    const createEventTitre = $('#evTitle').val();
    const createEventDate = $('#evDate').val();
    const createEventDuree= $('#evDuree').val();
@@ -55,25 +90,16 @@ $(document).ready(function() {
    const createEventTypeEvent = $('#evTypeev').val();
    const createEventDesc = $('#evDesc').val();
 
-   const createSubmitBtn = $('#evUpload');
-
-   const successAlert = $('.succesalert')
-   const errorAlert = $('.erroralert')
-
-   var container = $('#container');
-
-successAlert.hide();
-errorAlert.hide()
-
-   createSubmitBtn.click((e)=>{
-    e.preventDefault();
+    
+    console.log(createEventTitre,createEventDuree,createEventMaxPart)
+    
     const query = "evenement/create"
     const url = "http://localhost:8080/"+query
     const params = {
         titre:createEventTitre, 
         date:createEventDate  ,
-        duree:parseFloat(createEventDuree),
-        max_part: createEventMaxPart,
+        duree:createEventDuree,
+        max_part:createEventMaxPart,
         desc:createEventDesc,
         org:createEventOrga,
         type_event:createEventTypeEvent
@@ -86,9 +112,7 @@ $.ajax({
     data: params,
     success: function(response){
         const form = $('#evCreatForm');
-        form.each(function(){
-            this.reset();
-        });
+       
 	container.animate({
 		scrollTop: 20
 	});
@@ -97,6 +121,9 @@ $.ajax({
         setTimeout(()=>{
             successAlert.hide()
         },5000)
+        form.each(function(){
+            this.reset();
+        });
     },
     error:function(err){
         errorAlert.show()
@@ -111,5 +138,9 @@ $.ajax({
   });
    
 })
+
+// delete and update event
+
+
 
 })

@@ -51,7 +51,7 @@ charset=UTF-8" />
             </div>
             <div class="row-auto">
                 <label for="evDuree" class="form-label">Duree en heure</label>
-                <input type="number" step="1" class="form-control" id="evDuree">
+                <input type="number" class="form-control" id="evDuree">
               </div>
               <div class="row-auto">
                 <label for="evMaxpart" class="form-label">Maximun participant</label>
@@ -83,54 +83,65 @@ charset=UTF-8" />
 <!-- Modify part-->
 
         <div id="evMod">
+
+          <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+            your event is <strong>update!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-success alert-dismissible fade show deletealert" role="alert">
+            your event is <strong>Delete!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+            your event <strong>failed!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
             <form class="col g-3" id="evCreatForm" method="post" action="#">
                 <h5>Event Modification</h5>
                 <div class="row-auto">
-                    <label for="evTypeev" class="form-label">Select event</label>
-                    <select class="form-select" aria-label="Default select example" id="evTypeev" required>
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <label for="evModTypeev" class="form-label">Select event</label>
+                    <select class="form-select" aria-label="Default select example" id="evModTypeev" required>
+                        <option selected>Select Event</option>
+                        
                       </select>
                   </div>
                 <div class="row-auto">
-                  <label for="evTitle" class="form-label">Titre</label>
-                  <input type="text" class="form-control" id="evTitle">
+                  <label for="evModTitle" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="evModTitle">
                 </div>
                 <div class="row-auto">
-                  <label for="evDate" class="form-label">Date</label>
-                  <input type="text" class="form-control" id="evDate" placeholder="">
+                  <label for="evModDate" class="form-label">Date</label>
+                  <input type="text" class="form-control" id="evModDate" placeholder="">
                 </div>
                 <div class="row-auto">
-                    <label for="evDuree" class="form-label">Duree</label>
-                    <input type="text" class="form-control" id="evDuree" placeholder="">
+                    <label for="evModDuree" class="form-label">Duree</label>
+                    <input type="text" class="form-control" id="evModDuree" placeholder="">
                   </div>
                   <div class="row-auto">
-                    <label for="evMaxpart" class="form-label">Maximun participant</label>
-                    <input type="number" class="form-control" id="evMaxpart" placeholder="">
+                    <label for="evModMaxpart" class="form-label">Maximun participant</label>
+                    <input type="number" class="form-control" id="evModMaxpart" placeholder="">
                   </div>
                   <div class="row-auto">
-                    <label for="evOrga" class="form-label">Organisation</label>
-                    <input type="text" class="form-control" id="evOrga" placeholder="">
+                    <label for="evModOrga" class="form-label">Organisation</label>
+                    <input type="text" class="form-control" id="evModOrga" placeholder="">
                   </div>
                   <div class="row-auto">
-                    <label for="evTypeev" class="form-label">Type evenement</label>
-                    <select class="form-select" aria-label="Default select example" id="evTypeev">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                    <label for="evModTypeev" class="form-label">Type evenement</label>
+                    <select class="form-select" aria-label="Default select example" id="evModTypeev">
+                        <option value="forum" selected>Forum</option>
+                        <option value="networking">Networking</option>
+                        <option value="formation">Formation</option>
+                    </select>
                   </div>
                   <div class="row-auto">
-                    <label for="evDesc" class="form-label">Description</label>
-                    <textarea class="form-control" id="evDesc" rows="3"></textarea>
+                    <label for="evModDesc" class="form-label">Description</label>
+                    <textarea class="form-control" id="evModDesc" rows="3"></textarea>
                   </div>
                   <br/>
                 <div class="row-auto">
-                  <button type="submit" class="btn btn-primary mb-3">Update</button>
-                  <button type="submit" class="btn btn-danger mb-3">Delete</button>
+                  <button type="submit" class="btn btn-primary mb-3" id="evUpdate">Update</button>
+                  <button type="submit" class="btn btn-danger mb-3" id="evDelete">Delete</button>
                 </div>
               </form>
             </div>

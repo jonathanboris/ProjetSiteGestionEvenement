@@ -34,7 +34,6 @@ public class EvenementController {
         return "evenement";
     }
     @PostMapping("/evenement/create")
-
     @ResponseBody
     public ResponseEntity addEvenementt(@RequestParam(name = "titre",required = false) String titre,
                                              @RequestParam(name = "date",required = false) String date,
