@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
     const eventlist = $('#evModliste')
     eventlist.empty()
-    eventlist.append("<option selected>Select Event</option>")
+    eventlist.append("<option selected></option>")
     $.ajax({
         type: "GET",
         url: url,
@@ -125,10 +125,10 @@ $.ajax({
         console.log(response)
         setTimeout(()=>{
             successAlert.hide()
-        },5000)
-        form.each(function(){
-            this.reset();
-        });
+        },3000)
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
     },
     error:function(err){
         errorAlert.show()
@@ -188,6 +188,7 @@ $.ajax({
 
 const EventUpdateBtn = $('#evUpdate')
 const EventDeleteBtn = $('#evDelete')
+const formUp = $('#evModForm');
 
 EventUpdateBtn.click((e)=>{
     e.preventDefault()
@@ -210,8 +211,7 @@ $.ajax({
     url: url,
     data: params,
     success: function(response){
-        const form = $('#evCreatForm');
-       
+        
 	container.animate({
 		scrollTop: 20
 	});
@@ -219,10 +219,12 @@ $.ajax({
         console.log(response)
         setTimeout(()=>{
             successAlert.hide()
-        },5000)
-        form.each(function(){
-            form.reset();
-        });
+        },3000)
+        
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
+        
     },
     error:function(err){
         errorAlert.show()
@@ -252,8 +254,7 @@ $.ajax({
     url: url,
     data: params,
     success: function(response){
-        const form = $('#evCreatForm');
-       
+  
 	container.animate({
 		scrollTop: 20
 	});
@@ -261,10 +262,10 @@ $.ajax({
         console.log(response)
         setTimeout(()=>{
             deleteAlert.hide()
-        },5000)
-        form.each(function(){
-            form.reset();
-        });
+        },3000)
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
     },
     error:function(err){
         errorAlert.show()

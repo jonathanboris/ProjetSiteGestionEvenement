@@ -4,10 +4,10 @@
     <title>Event Manager Pro</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "../static/css/style.css" type = "text/css" />
-    <Link rel = "StyleSheet" href = "../static/bootstrap/css/bootstrap.min.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/bootstrap/css/bootstrap.min.css" type = "text/css" />
 
-    <script src="../static/js/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div id="header">
@@ -88,7 +88,7 @@ charset=UTF-8" />
             your event is <strong>update!</strong>.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-          <div class="alert alert-success alert-dismissible fade show deletealert" role="alert">
+          <div class="alert alert-warning alert-dismissible fade show deletealert" role="alert">
             your event is <strong>Delete!</strong>.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
@@ -97,14 +97,13 @@ charset=UTF-8" />
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
 
-            <form class="col g-3" id="evCreatForm" method="post" action="#">
+            <form class="col g-3 updateform" id="evModForm" method="post" action="#">
                 <h5>Event Modification</h5>
                 <div class="row-auto">
                     <label for="evModTypeev" class="form-label">Select event</label>
-                    <select class="form-select" aria-label="Default select example" id="evModTypeev" required>
-                        <option selected>Select Event</option>
-                        
-                      </select>
+                    <select class="form-select" aria-label="Default select example" id="evModliste" required>
+
+                    </select>
                   </div>
                 <div class="row-auto">
                   <label for="evModTitle" class="form-label">Titre</label>
@@ -112,15 +111,15 @@ charset=UTF-8" />
                 </div>
                 <div class="row-auto">
                   <label for="evModDate" class="form-label">Date</label>
-                  <input type="text" class="form-control" id="evModDate" placeholder="">
+                  <input type="date" class="form-control" id="evModDate" placeholder="">
                 </div>
                 <div class="row-auto">
                     <label for="evModDuree" class="form-label">Duree</label>
-                    <input type="text" class="form-control" id="evModDuree" placeholder="">
+                    <input type="number" class="form-control" id="evModDuree">
                   </div>
                   <div class="row-auto">
                     <label for="evModMaxpart" class="form-label">Maximun participant</label>
-                    <input type="number" class="form-control" id="evModMaxpart" placeholder="">
+                    <input type="number" class="form-control" id="evModMaxpart">
                   </div>
                   <div class="row-auto">
                     <label for="evModOrga" class="form-label">Organisation</label>
@@ -231,8 +230,8 @@ charset=UTF-8" />
     <span id="copyright">&copy;Copyright TSI ENSG</span>
 </div>
 
-<script src="../static/js/evenement.js"></script>
-<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/evenement.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

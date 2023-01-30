@@ -33,12 +33,17 @@ $(document).ready(function() {
     const params = {
 
         }
+    const eventlist = $('#evModliste')
+    eventlist.empty()
+    eventlist.append("<option selected></option>")
     $.ajax({
         type: "GET",
         url: url,
         data: params,
         success: function(response){
-            console.log(response)
+            response.forEach((val,index)=>{
+                eventlist.append("<option value = '"+val.id+"'>"+"Titre: "+val.titre+", Organiseur: "+val.organisateur+"</option>")
+            })
         },
         error:function(err){
             
@@ -120,10 +125,10 @@ $.ajax({
         console.log(response)
         setTimeout(()=>{
             successAlert.hide()
-        },5000)
-        form.each(function(){
-            this.reset();
-        });
+        },3000)
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
     },
     error:function(err){
         errorAlert.show()
@@ -139,8 +144,142 @@ $.ajax({
    
 })
 
-// delete and update event
+// selected event
+const eventlist = $('#evModliste')
+const EventTitre = $('#evModTitle');
+const EventDate = $('#evModDate');
+const EventDuree= $('#evModDuree');
+const EventMaxPart= $('#evModMaxpart');
+const EventOrga = $('#evModOrga');
+const EventTypeEvent = $('#evModTypeev');
+const EventDesc = $('#evModDesc');
+eventlist.change(()=>{
 
+    const query = "evenement/getId"
+    const url = "http://localhost:8080/"+query
+    const params = {
+        id:eventlist.val(), 
+        }
+    
+$.ajax({
+    type: "GET",
+    url: url,
+    data: params,
+    success: function(response){
+        const data = response[0]
+        console.log(data)
+    EventTitre.attr("value",data.titre)
+    EventDate.attr("value",data.date)
+    EventDuree.attr("value",parseInt(data.duree))
+    EventMaxPart.attr("value",parseInt(data.maxpart))
+    EventOrga.attr("value",data.organisateur)
+    EventTypeEvent.val(data.type_event)
+    EventDesc.text(data.description)
+        
+    },
+    error:function(err){
+       
+    },
+  });
+   
+})
 
+// update event
+
+const EventUpdateBtn = $('#evUpdate')
+const EventDeleteBtn = $('#evDelete')
+const formUp = $('#evModForm');
+
+EventUpdateBtn.click((e)=>{
+    e.preventDefault()
+
+    const query = "evenement/update"
+    const url = "http://localhost:8080/"+query
+    const params = {
+        titre:EventTitre.val(), 
+        date:EventDate.val()  ,
+        duree:EventDuree.val(),
+        max_part:EventMaxPart.val(),
+        desc:EventDesc.val(),
+        org:EventOrga.val(),
+        type_event:EventTypeEvent.val(),
+        currentId:eventlist.val()
+        }
+    
+$.ajax({
+    type: "POST",
+    url: url,
+    data: params,
+    success: function(response){
+        
+	container.animate({
+		scrollTop: 20
+	});
+        successAlert.show()
+        console.log(response)
+        setTimeout(()=>{
+            successAlert.hide()
+        },3000)
+        
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
+        
+    },
+    error:function(err){
+        errorAlert.show()
+        container.animate({
+            scrollTop: 20
+        });
+        setTimeout(()=>{
+            errorAlert.hide()
+        },5000)
+          console.log(err)
+    },
+  });
+})
+
+//delete event
+EventDeleteBtn.click((e)=>{
+    e.preventDefault()
+
+    const query = "evenement/delete"
+    const url = "http://localhost:8080/"+query
+    const params = {
+        id:eventlist.val(),
+        }
+    
+$.ajax({
+    type: "POST",
+    url: url,
+    data: params,
+    success: function(response){
+  
+	container.animate({
+		scrollTop: 20
+	});
+        deleteAlert.show()
+        console.log(response)
+        setTimeout(()=>{
+            deleteAlert.hide()
+        },3000)
+        setTimeout(() => { 
+            window.location.href = "/evenement";
+        }, 3500);
+    },
+    error:function(err){
+        errorAlert.show()
+        container.animate({
+            scrollTop: 20
+        });
+        setTimeout(()=>{
+            errorAlert.hide()
+        },5000)
+          console.log(err)
+    },
+  });
+})
 
 })
+
+

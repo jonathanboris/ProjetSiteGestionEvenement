@@ -104,6 +104,11 @@ height: 100%;
     width: 60%;
     margin-left: 20%;
 }
+
+#evModForm{
+    width: 60%;
+    margin-left: 20%;
+}
 .evTable{
     top: 30vh;
     width: 60%;
