@@ -15,6 +15,7 @@ $(document).ready(function() {
    const containerModDiv = $('#evMod')
    const containerViewDiv = $('#evView')
 
+
 //intial hide sections
    containerModDiv.hide()
    containerViewDiv.hide()
@@ -66,6 +67,43 @@ $(document).ready(function() {
     containerCreateDiv.hide()
     containerModDiv.hide()
     containerViewDiv.show()
+
+    const tableBody = $('#evView table tbody');
+
+    const query = "evenement/liste"
+    const url = "http://localhost:8080/"+query
+    const params = { 
+        }
+    
+$.ajax({
+    type: "GET",
+    url: url,
+    data: params,
+    success: function(response){
+        const datas = response
+        console.log(datas)
+        datas.forEach((data,index)=>{
+         const tr = "<tr>"+
+         "<th scope='row'>"+index+"</th>"+
+        "<td>"+data.titre+"</td>"+
+        "<td>"+data.date+"</td>"+
+        "<td>"+data.duree+"</td>"+
+        "<td>"+data.maxpart+"</td>"+
+        "<td>"+data.organisateur+"</td>"+
+        "<td>"+data.type_event+"</td>"+
+        "<td>"+data.description+"</td>"+
+        "</tr>"
+        tableBody.append(tr)
+        })
+        
+    },
+    error:function(err){
+       
+    },
+  });
+
+
+
    
    })
 
@@ -279,6 +317,10 @@ $.ajax({
     },
   });
 })
+
+// event liste
+
+
 
 })
 
