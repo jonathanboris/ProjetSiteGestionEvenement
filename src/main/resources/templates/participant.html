@@ -1,14 +1,177 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>EventManager</title>
+    <title>Event Manager Pro</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "../static/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "../static/bootstrap/css/bootstrap.min.css" type = "text/css" />
+
+    <script src="../static/js/jquery.js"></script>
 </head>
 <body>
-<p id="title">Participant</p>
+<div id="header">
+    <h2>EVENT MANAGER PRO</h2>
+    <div id="navig1">
+        <ul>
+            <a href="../static/evenement"><li class="nav1" id="evLink">EVENT</li></a>
+            <a href="../static/participant"><li class="nav1 active2" id="partLink">PARTICIPANT</li></a>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <h4>Participants</h4>
+    <div id="navig2">
+        <ul>
+            <a href="#"><li class="nav active" id="navCreate">Create</li></a>
+             <a href="#"><li class="nav" id="navMod">Modify</li></a>
+             <a href="#"><li class="nav" id="navView">View</li></a>
+        </ul>
+    </div>
+    <!-- Create part-->
+        <div id="partCreate">
+        
+              <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+                your event is <strong>saved!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+                your event <strong>failed!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+           <form class="col g-3" id="partCreatForm" method="post" action="#">
+            <h5>Participant creation</h5>
+            <div class="row-auto">
+              <label for="partNom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="partNom" required>
+            </div>
+            <div class="row-auto">
+              <label for="partPrenom" class="form-label">Prenom</label>
+              <input type="text" class="form-control" id="partPrenom" placeholder="" required>
+            </div>
+            <div class="row-auto">
+                <label for="partMail" class="form-label">Adresse mail</label>
+                <input type="text" class="form-control" id="partMail">
+              </div>
+              <div class="row-auto">
+                <label for="partNaiss" class="form-label">Date de naissance</label>
+                <input type="date" class="form-control" id="partNaiss">
+              </div>
+              <div class="row-auto">
+                <label for="partEntr" class="form-label">Entreprise</label>
+                <input type="text" class="form-control" id="partEntr" placeholder="" required>
+              </div>
+              <div class="row-auto">
+                <label for="partObserv" class="form-label">Observation</label>
+                <input type="text" class="form-control" id="partObserv" placeholder="" required>
+              </div>
+              <div class="row-auto">
+                <label for="partEvent" class="form-label">Evenvement inscrit</label>
+                <select class="form-select" aria-label="Default select example" id="partEvent">
+                    
+                  </select>
+              </div>
+              
+              <br/>
+            <div class="row-auto">
+              <button type="button" class="btn btn-primary mb-3" id="partUpload">Upload</button>
+            </div>
+          </form>
+        </div>
 
-<script src="/js/participant.js"></script>
+<!-- Modify part-->
+
+        <div id="partMod">
+
+          <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+            your event is <strong>update!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-warning alert-dismissible fade show deletealert" role="alert">
+            your event is <strong>Delete!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+            your event <strong>failed!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+            <form class="col g-3 updateform" id="partModForm" method="post" action="#">
+                <h5>Event Modification</h5>
+                <div class="row-auto">
+                    <label for="partModSelect" class="form-label">Participant</label>
+                    <select class="form-select" aria-label="Default select example" id="partModSelect">
+                        
+                      </select>
+                  </div>
+                <div class="row-auto">
+                    <label for="partModNom" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="partModNom" required>
+                  </div>
+                  <div class="row-auto">
+                    <label for="partModPrenom" class="form-label">Prenom</label>
+                    <input type="text" class="form-control" id="partModPrenom" placeholder="" required>
+                  </div>
+                  <div class="row-auto">
+                      <label for="partModMail" class="form-label">Adresse mail</label>
+                      <input type="text" class="form-control" id="partModMail">
+                    </div>
+                    <div class="row-auto">
+                      <label for="partModNaiss" class="form-label">Date de naissance</label>
+                      <input type="date" class="form-control" id="partModNaiss">
+                    </div>
+                    <div class="row-auto">
+                      <label for="partModObs" class="form-label">Observation</label>
+                      <input type="text" class="form-control" id="partModObs" placeholder="" required>
+                    </div>
+                    <div class="row-auto">
+                      <label for="partModEntr" class="form-label">Entreprise</label>
+                      <input type="text" class="form-control" id="partModEntr" placeholder="" required>
+                    </div>
+                    <div class="row-auto">
+                      <label for="partModEvent" class="form-label">Evenvement inscrit</label>
+                      <select class="form-select" aria-label="Default select example" id="partModEvent">
+                          
+                        </select>
+                    </div>
+                  <br/>
+                <div class="row-auto">
+                  <button type="submit" class="btn btn-primary mb-3" id="partUpdate">Update</button>
+                  <button type="submit" class="btn btn-danger mb-3" id="partDelete">Delete</button>
+                </div>
+              </form>
+            </div>
+        
+
+
+<!-- View part-->
+        <div id="partView">
+            <table class="table evTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Organisation</th>
+                    <th scope="col">Entreprise</th>
+                    <th scope="col">Ref Evenvement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+        </div>  
+</div>
+</div>
+<div id="footer">
+    <span id="copyright">&copy;Copyright TSI ENSG</span>
+</div>
+
+<script src="../static/js/participant.js"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

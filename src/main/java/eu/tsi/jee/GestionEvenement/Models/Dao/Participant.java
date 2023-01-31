@@ -135,6 +135,8 @@ public class Participant {
         builder.append(entreprise);
         builder.append("\", \"observation\" :\"");
         builder.append(observation);
+        builder.append("\", \"event_id\" :\"");
+        builder.append(evenement.getId());
         builder.append("\"}");
         return builder.toString();
     }

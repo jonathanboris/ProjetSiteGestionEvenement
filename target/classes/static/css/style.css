@@ -111,6 +111,7 @@ height: 100%;
     width: 60%;
     margin-left: 20%;
 }
+
 .evTable{
     top: 30vh;
     width: 60%;
@@ -129,6 +130,18 @@ height: 100%;
 .deletealert{
     width: 60%;
     margin-left: 20%;
+}
+#partCreatForm{
+    width: 60%;
+    margin-left: 20%;
+}
+#partModForm{
+    width: 60%;
+    margin-left: 20%;
+}
+#partView{
+    width: 80%;
+    margin-left: 10%;
 }
 /* footer styling*/
 #footer{
