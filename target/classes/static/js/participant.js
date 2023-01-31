@@ -14,50 +14,50 @@ $(document).ready(function() {
    const containerCreateDiv = $('#partCreate')
    const containerModDiv = $('#partMod')
    const containerViewDiv = $('#partView')
+   const eventPartlist = $('#partEvent')
+   const eventPartlist2 = $('#partModEvent')
+   const eventPartlist3 = $('#partModEventFiltre')
+   const partlist = $('#partModSelect')
+     
 
+   const createSubmitBtn = $('#partUpload')
+   const successAlert = $('.succesalert')
+   const deleteAlert  = $('.deletealert')
+   const errorAlert = $('.erroralert')
+   const container = $('#container');
+
+
+
+   const EventUpdateBtn = $('#partUpdate')
+   const EventDeleteBtn = $('#partDelete')
 
 //intial hide sections
    containerModDiv.hide()
    containerViewDiv.hide()
+   successAlert.hide();
+errorAlert.hide()
+deleteAlert.hide()
 
 //init event liste create
 const query = "evenement/liste"
     const url = "http://localhost:8080/"+query
-    const params = {
-
-        }
-    const eventPartlist = $('#partEvent')
+    const params = {}
+    
     eventPartlist.empty()
-    eventPartlist.append("<option selected></option>")
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: params,
-        success: function(response){
-            response.forEach((val,index)=>{
-                eventPartlist.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' organise par "+val.organisateur+"</option>")
-            })
-        },
-        error:function(err){
-            
-        }
-      });
-//init event liste update
-const query2 = "evenement/liste"
-    const url2 = "http://localhost:8080/"+query
-    const params2 = {
-
-        }
-    const eventPartlist2 = $('#partModEvent')
     eventPartlist2.empty()
+    eventPartlist3.empty()
+    eventPartlist.append("<option selected></option>")
     eventPartlist2.append("<option selected></option>")
+    eventPartlist3.append("<option selected></option>")
     $.ajax({
         type: "GET",
         url: url,
         data: params,
         success: function(response){
             response.forEach((val,index)=>{
-                eventPartlist2.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' organise par "+val.organisateur+"</option>")
+                eventPartlist.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' | organisateur: "+val.organisateur+"</option>")
+                eventPartlist2.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' | organisateur: "+val.organisateur+"</option>")
+                eventPartlist3.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' | organisateur: "+val.organisateur+"</option>")
             })
         },
         error:function(err){
@@ -81,6 +81,7 @@ const query2 = "evenement/liste"
     const params = {
 
         }
+eventPartlist3.change(()=>{
     const eventlist = $('#partModSelect')
     eventlist.empty()
     eventlist.append("<option selected></option>")
@@ -89,14 +90,18 @@ const query2 = "evenement/liste"
         url: url,
         data: params,
         success: function(response){
-            response.forEach((val,index)=>{
-                eventlist.append("<option value = '"+val.id+"'>"+" '"+val.nom+" "+val.prenom+"' entreprise "+val.entreprise+"</option>")
+            const responseFiltre = response.filter(el=> el.event_id == eventPartlist3.val())
+            responseFiltre.forEach((val,index)=>{
+                eventlist.append("<option value = '"+val.id+"'>"+" '"+val.nom+" "+val.prenom+"' | entreprise: "+val.entreprise+"</option>")
             })
         },
         error:function(err){
             
         }
       });
+})
+    
+    
 
    })
 
@@ -115,9 +120,9 @@ const query2 = "evenement/liste"
     containerModDiv.hide()
     containerViewDiv.show()
 
-    const tableBody = $('#evView table tbody');
+    const tableBody = $('#partView table tbody');
 
-    const query = "evenement/liste"
+    const query = "participant/liste"
     const url = "http://localhost:8080/"+query
     const params = { 
         }
@@ -132,13 +137,13 @@ $.ajax({
         datas.forEach((data,index)=>{
          const tr = "<tr>"+
          "<th scope='row'>"+index+"</th>"+
-        "<td>"+data.titre+"</td>"+
-        "<td>"+data.date+"</td>"+
-        "<td>"+data.duree+"</td>"+
-        "<td>"+data.maxpart+"</td>"+
-        "<td>"+data.organisateur+"</td>"+
-        "<td>"+data.type_event+"</td>"+
-        "<td>"+data.description+"</td>"+
+        "<td>"+data.nom+"</td>"+
+        "<td>"+data.prenom+"</td>"+
+        "<td>"+data.mail+"</td>"+
+        "<td>"+data.date_naiss+"</td>"+
+        "<td>"+data.observation+"</td>"+
+        "<td>"+data.entreprise+"</td>"+
+        "<td>"+data.event_id+"</td>"+
         "</tr>"
         tableBody.append(tr)
         })
@@ -156,17 +161,7 @@ $.ajax({
 
    // create part
 
-   
-
-   const createSubmitBtn = $('#partUpload')
-   const successAlert = $('.succesalert')
-   const deleteAlert  = $('.deletealert')
-   const errorAlert = $('.erroralert')
-   const container = $('#container');
-
-successAlert.hide();
-errorAlert.hide()
-deleteAlert.hide()
+ 
 
    createSubmitBtn.click((e)=>{
    
@@ -228,8 +223,7 @@ $.ajax({
    
 })
 
-// selected event
-const partlist = $('#partModSelect')
+
 const partNom = $('#partModNom');
 const partPrenom = $('#partModPrenom');
 const partMail= $('#partModMail');
@@ -237,8 +231,12 @@ const partNaiss= $('#partModNaiss');
 const partEntr = $('#partModEntr');
 const partObs = $('#partModObs');
 const partEvent = $('#partModEvent');
-
 partlist.change(()=>{
+
+
+// selected event
+
+
 
     const query = "participant/getId"
     const url = "http://localhost:8080/"+query
@@ -252,7 +250,6 @@ $.ajax({
     data: params,
     success: function(response){
         const data = response[0]
-        console.log(data)
         partNom.attr("value",data.nom)
         partPrenom.attr("value",data.prenom)
         partMail.attr("value",data.mail)
@@ -271,24 +268,22 @@ $.ajax({
 
 // update event
 
-const EventUpdateBtn = $('#evUpdate')
-const EventDeleteBtn = $('#evDelete')
-const formUp = $('#evModForm');
+
 
 EventUpdateBtn.click((e)=>{
     e.preventDefault()
 
-    const query = "evenement/update"
+    const query = "participant/update"
     const url = "http://localhost:8080/"+query
     const params = {
-        titre:EventTitre.val(), 
-        date:EventDate.val()  ,
-        duree:EventDuree.val(),
-        max_part:EventMaxPart.val(),
-        desc:EventDesc.val(),
-        org:EventOrga.val(),
-        type_event:EventTypeEvent.val(),
-        currentId:eventlist.val()
+        nom:partNom.val(), 
+        prenom:partPrenom.val()  ,
+        mail:partMail.val(),
+        date_naiss:partNaiss.val(),
+        entrep:partEntr.val(),
+        observ:partObs.val(),
+        event_id:partEvent.val(),
+        currentId:partlist.val()
         }
     
 $.ajax({
@@ -307,7 +302,7 @@ $.ajax({
         },3000)
         
         setTimeout(() => { 
-            window.location.href = "/evenement";
+            window.location.href = "/participant";
         }, 3500);
         
     },
@@ -328,10 +323,11 @@ $.ajax({
 EventDeleteBtn.click((e)=>{
     e.preventDefault()
 
-    const query = "evenement/delete"
+    const query = "participant/delete"
     const url = "http://localhost:8080/"+query
     const params = {
-        id:eventlist.val(),
+        id:partlist.val(),
+        idEvent:partEvent.val()
         }
     
 $.ajax({
@@ -349,7 +345,7 @@ $.ajax({
             deleteAlert.hide()
         },3000)
         setTimeout(() => { 
-            window.location.href = "/evenement";
+            window.location.href = "/participant";
         }, 3500);
     },
     error:function(err){

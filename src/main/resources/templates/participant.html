@@ -4,18 +4,18 @@
     <title>Event Manager Pro</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "../static/css/style.css" type = "text/css" />
-    <Link rel = "StyleSheet" href = "../static/bootstrap/css/bootstrap.min.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/bootstrap/css/bootstrap.min.css" type = "text/css" />
 
-    <script src="../static/js/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
 <div id="header">
     <h2>EVENT MANAGER PRO</h2>
     <div id="navig1">
         <ul>
-            <a href="../static/evenement"><li class="nav1" id="evLink">EVENT</li></a>
-            <a href="../static/participant"><li class="nav1 active2" id="partLink">PARTICIPANT</li></a>
+            <a href="/evenement"><li class="nav1" id="evLink">EVENT</li></a>
+            <a href="/participant"><li class="nav1 active2" id="partLink">PARTICIPANT</li></a>
         </ul>
     </div>
 </div>
@@ -99,6 +99,12 @@ charset=UTF-8" />
             <form class="col g-3 updateform" id="partModForm" method="post" action="#">
                 <h5>Event Modification</h5>
                 <div class="row-auto">
+                  <label for="partModEventFiltre" class="form-label">Filtre par Evenvement</label>
+                  <select class="form-select" aria-label="Default select example" id="partModEventFiltre">
+                      
+                    </select>
+                </div>
+                <div class="row-auto">
                     <label for="partModSelect" class="form-label">Participant</label>
                     <select class="form-select" aria-label="Default select example" id="partModSelect">
                         
@@ -154,7 +160,7 @@ charset=UTF-8" />
                     <th scope="col">Prenom</th>
                     <th scope="col">Mail</th>
                     <th scope="col">Date de naissance</th>
-                    <th scope="col">Organisation</th>
+                    <th scope="col">Observation</th>
                     <th scope="col">Entreprise</th>
                     <th scope="col">Ref Evenvement</th>
                   </tr>
@@ -170,8 +176,8 @@ charset=UTF-8" />
     <span id="copyright">&copy;Copyright TSI ENSG</span>
 </div>
 
-<script src="../static/js/participant.js"></script>
-<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/participant.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
