@@ -4,11 +4,32 @@
     <title>EventManager</title>
     <meta http-equiv="Content-Type" content="text/html;
 charset=UTF-8" />
-    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "bootstrap/css/bootstrap.min.css" type = "text/css" />
+    <script src="js/jquery.js"></script>
 </head>
 <body>
-<p id="title">Welcome</p>
+<div id="loginContainer">
+    <h4>Authentification</h4>
+    <form class="col g-3" id="loginForm" method="post" action="#">
+        <div class="row-auto">
+            <label for="login" class="form-label">Login</label>
+            <input type="text" class="form-control" id="login" required>
+          </div>
+          <div class="row-auto">
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass" name="pass"/>
+          </div>
+          <span id="error"></span>
+          <br/>
+          <br/>
+          <div class="row-auto">
+            <button type="button" class="btn btn-primary mb-3" id="connect">Se connecter</button>
+          </div>
 
-<script src="/js/index.js"></script>
+    </form>
+</div>
+
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -1,7 +1,16 @@
 
 $(document).ready(function() {
     window.jQuery = window.$ = jQuery = $;
+    const token = sessionStorage.getItem('token')
+    const deconn = $('.deconn')
+    if(token != "tfrggdgdbvhjsjndbbdhh"){
+        window.location.href = "/"
+    }
 
+    deconn.click(()=>{
+        sessionStorage.setItem('token','')
+        window.location.href = "/"
+    })
    const navCreateDiv = $('#navCreate')
    const navModDiv = $('#navMod')
    const navViewDiv = $('#navView')
@@ -91,6 +100,8 @@ eventPartlist3.change(()=>{
         data: params,
         success: function(response){
             const responseFiltre = response.filter(el=> el.event_id == eventPartlist3.val())
+            eventlist.empty()
+            eventlist.append("<option selected></option>")
             responseFiltre.forEach((val,index)=>{
                 eventlist.append("<option value = '"+val.id+"'>"+" '"+val.nom+" "+val.prenom+"' | entreprise: "+val.entreprise+"</option>")
             })
@@ -132,8 +143,8 @@ $.ajax({
     url: url,
     data: params,
     success: function(response){
+        tableBody.empty()
         const datas = response
-        console.log(datas)
         datas.forEach((data,index)=>{
          const tr = "<tr>"+
          "<th scope='row'>"+index+"</th>"+

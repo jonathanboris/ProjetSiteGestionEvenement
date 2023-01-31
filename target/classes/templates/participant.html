@@ -8,10 +8,12 @@ charset=UTF-8" />
     <Link rel = "StyleSheet" href = "/bootstrap/css/bootstrap.min.css" type = "text/css" />
 
     <script src="/js/jquery.js"></script>
+    <script src="/js/participant.js"></script>
 </head>
 <body>
 <div id="header">
     <h2>EVENT MANAGER PRO</h2>
+    <a href="#" class="deconn">Deconnexion</a>
     <div id="navig1">
         <ul>
             <a href="/evenement"><li class="nav1" id="evLink">EVENT</li></a>
@@ -97,7 +99,7 @@ charset=UTF-8" />
           </div>
 
             <form class="col g-3 updateform" id="partModForm" method="post" action="#">
-                <h5>Event Modification</h5>
+                <h5>Participant modify</h5>
                 <div class="row-auto">
                   <label for="partModEventFiltre" class="form-label">Filtre par Evenvement</label>
                   <select class="form-select" aria-label="Default select example" id="partModEventFiltre">
@@ -162,7 +164,7 @@ charset=UTF-8" />
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Observation</th>
                     <th scope="col">Entreprise</th>
-                    <th scope="col">Ref Evenvement</th>
+                    <th scope="col">Ref Event</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -176,7 +178,7 @@ charset=UTF-8" />
     <span id="copyright">&copy;Copyright TSI ENSG</span>
 </div>
 
-<script src="/js/participant.js"></script>
+
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 
 </body>

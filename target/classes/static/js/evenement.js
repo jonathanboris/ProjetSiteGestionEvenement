@@ -2,6 +2,18 @@
 $(document).ready(function() {
     window.jQuery = window.$ = jQuery = $;
 
+    const token = sessionStorage.getItem('token')
+    const deconn = $('.deconn')
+    if(token != "tfrggdgdbvhjsjndbbdhh"){
+        window.location.href = "/"
+    }
+
+    deconn.click(()=>{
+        sessionStorage.setItem('token','')
+        window.location.href = "/"
+    })
+
+
    const navCreateDiv = $('#navCreate')
    const navModDiv = $('#navMod')
    const navViewDiv = $('#navView')
@@ -80,8 +92,9 @@ $.ajax({
     url: url,
     data: params,
     success: function(response){
+        tableBody.empty()
         const datas = response
-        console.log(datas)
+        
         datas.forEach((data,index)=>{
          const tr = "<tr>"+
          "<th scope='row'>"+index+"</th>"+
