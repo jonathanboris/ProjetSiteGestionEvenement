@@ -55,7 +55,7 @@ $(document).ready(function() {
         data: params,
         success: function(response){
             response.forEach((val,index)=>{
-                eventlist.append("<option value = '"+val.id+"'>"+"Titre: "+val.titre+", Organiseur: "+val.organisateur+"</option>")
+                eventlist.append("<option value = '"+val.id+"'>"+"'"+val.titre+"' | Organisateur: "+val.organisateur+"</option>")
             })
         },
         error:function(err){
