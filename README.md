@@ -32,6 +32,7 @@ export PATH
 ### Installation et execution
 >  - Copier le code source du projet
 >  - Configurer les parametres de connexion a votre SGBD PostgreSQL dans /src/main/resources/application.properties
+> - Creer un utilisateur dans la table login
 > - Executer cette commande dans la racine de projet: $ sudo mvn spring-boot:run
 > - Aller sur le lien http://127.0.0.1:8080
 
