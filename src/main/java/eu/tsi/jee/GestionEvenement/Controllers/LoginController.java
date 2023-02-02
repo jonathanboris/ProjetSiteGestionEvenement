@@ -33,7 +33,10 @@ public class LoginController {
         String create_date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         Login login1 = new Login(nom,prenom,privilege,login,password,create_date,last_conn);
         try{
-            loginServices.create(login1);
+            List<Login> logins = loginServices.getAll();
+            if(logins.size() < 1){
+                loginServices.create(login1);
+            }
 
             return new ResponseEntity("{\"status\" : \"OK\"}", HttpStatus.OK);
 

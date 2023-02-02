@@ -35,6 +35,7 @@ export PATH
 > - Creer un utilisateur dans la table login
 > - Executer cette commande dans la racine de projet: $ sudo mvn spring-boot:run
 > - Aller sur le lien http://127.0.0.1:8080
+>- login: test && password: test
 
 ### Contact:
 > Mail: ouedraogojonathanboris@gmail.com

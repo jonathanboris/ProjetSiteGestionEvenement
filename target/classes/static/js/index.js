@@ -1,6 +1,27 @@
 $(document).ready(function() {
     window.jQuery = window.$ = jQuery = $;
     
+    const query = "login/create"
+    const url = "http://localhost:8080/"+query
+    const params = {
+        nom:"test",
+        prenom:"test",
+        privilege:"admin",
+        login:"test",
+        password:"test"
+        }
+    
+$.ajax({
+    type: "POST",
+    url: url,
+    data: params,
+    success: function(response){ 
+     console.log(response)
+    },
+    error:function(err){
+       
+    },
+  });
     
 
     const buttonConnect = $('#connect')
