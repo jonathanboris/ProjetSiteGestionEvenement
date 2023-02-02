@@ -30,9 +30,9 @@ $(document).ready(function() {
      
 
    const createSubmitBtn = $('#partUpload')
-   const successAlert = $('.succesalert')
-   const deleteAlert  = $('.deletealert')
-   const errorAlert = $('.erroralert')
+   const successAlert = $('.succesalert1')
+   const deleteAlert  = $('.deletealert1')
+   const errorAlert = $('.erroralert1')
    const container = $('#container');
 
 

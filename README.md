@@ -1,10 +1,10 @@
 # GUIDE D'INSTALLATION
 
-## Resume
-> Ce code source est celui d'une application de gestion d'evenement developper en java spring-boot MVC, ce document est un guide d'installation utile au deployement de la solution.
-les commandes ci-dessous sont dediees au systeme d'exploitation Linux, mais les environnements requisent reste identiques pour tout autres systemes.
+## Résumer
+> Ce code source est celui d'une application de gestion d'évenement développer en java spring-boot MVC, ce document est un guide d'installation utile au deployement de la solution.
+les commandes ci-dessous sont dediées au système d'exploitation Linux, mais les environnements requisent reste identiques pour tout autres systèmes.
 
-> ### Prerequis
+> ### Prérequis
 >> #### Java 17 :
 >> - $ sudo apt install openjdk-17-jdk
 >> - $ java -version
@@ -21,7 +21,7 @@ export PATH
 
 
 
-### Systeme d'exploitation:
+### Système d'exploitation:
 > Recommandation
 >   - Processor: intel® Core™ i5-3210M CPU @ 2.50GHz × 4
 >   - Random access memory (RAM): 8,0 GiB
