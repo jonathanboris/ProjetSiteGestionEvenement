@@ -1,6 +1,6 @@
 # GUIDE D'INSTALLATION
 
-## Resumer 
+## Resume
 > Ce code source est celui d'une application de gestion d'evenement developper en java spring-boot MVC, ce document est le guide d'installation utile pour le bon deployement de la solution.
 les commandes ci-dessous sont dediees au systeme d'expoitation Linux, mais les environnements requisent reste identiques pour tout autre systeme.
 
