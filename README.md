@@ -6,7 +6,7 @@ les commandes ci-dessous sont dediees au systeme d'exploitation Linux, mais les 
 
 > ### Prerequis
 >> #### Java 17 :
->> - $ sudo apt install openjdk-11-jdk
+>> - $ sudo apt install openjdk-17-jdk
 >> - $ java -version
 >> #### Maven :
 >> - $ wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
