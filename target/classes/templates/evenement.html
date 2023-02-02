@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Event Manager Pro</title>
+    <meta http-equiv="Content-Type" content="text/html;
+charset=UTF-8" />
+    <Link rel = "StyleSheet" href = "/css/style.css" type = "text/css" />
+    <Link rel = "StyleSheet" href = "/bootstrap/css/bootstrap.min.css" type = "text/css" />
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/evenement.js"></script>
+</head>
+<body>
+<div id="header">
+    <h2>EVENT MANAGER PRO</h2>
+    <a href="#" class="deconn">Deconnexion</a>
+    <div id="navig1">
+        <ul>
+            <a href="/evenement"><li class="nav1 active2" id="evLink">EVENT</li></a>
+            <a href="/participant"><li class="nav1" id="partLink">PARTICIPANT</li></a>
+        </ul>
+    </div>
+</div>
+<div id="container">
+    <h4>Events</h4>
+    <div id="navig2">
+        <ul>
+            <a href="#"><li class="nav active" id="navCreate">Create</li></a>
+             <a href="#"><li class="nav" id="navMod">Modify</li></a>
+             <a href="#"><li class="nav" id="navView">View</li></a>
+        </ul>
+    </div>
+    <!-- Create part-->
+        <div id="evCreate">
+        
+              <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+                your event is <strong>saved!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+                your event <strong>failed!</strong>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+           <form class="col g-3" id="evCreatForm" method="post" action="#">
+            <h5>Event creation</h5>
+            <div class="row-auto">
+              <label for="evTitle" class="form-label">Titre</label>
+              <input type="text" class="form-control" id="evTitle" required>
+            </div>
+            <div class="row-auto">
+              <label for="evDate" class="form-label">Date</label>
+              <input type="date" class="form-control" id="evDate" placeholder="" required>
+            </div>
+            <div class="row-auto">
+                <label for="evDuree" class="form-label">Duree en heure</label>
+                <input type="number" class="form-control" id="evDuree">
+              </div>
+              <div class="row-auto">
+                <label for="evMaxpart" class="form-label">Maximun participant</label>
+                <input type="number" class="form-control" id="evMaxpart">
+              </div>
+              <div class="row-auto">
+                <label for="evOrga" class="form-label">Organisation</label>
+                <input type="text" class="form-control" id="evOrga" placeholder="" required>
+              </div>
+              <div class="row-auto">
+                <label for="evTypeev" class="form-label">Type evenement</label>
+                <select class="form-select" aria-label="Default select example" id="evTypeev">
+                    <option value="forum" selected>Forum</option>
+                    <option value="networking">Networking</option>
+                    <option value="formation">Formation</option>
+                  </select>
+              </div>
+              <div class="row-auto">
+                <label for="evDesc" class="form-label">Description</label>
+                <textarea class="form-control" id="evDesc" rows="3"></textarea>
+              </div>
+              <br/>
+            <div class="row-auto">
+              <button type="button" class="btn btn-primary mb-3" id="evUpload">Upload</button>
+            </div>
+          </form>
+        </div>
+
+<!-- Modify part-->
+
+        <div id="evMod">
+
+          <div class="alert alert-success alert-dismissible fade show succesalert" role="alert">
+            your event is <strong>update!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-warning alert-dismissible fade show deletealert" role="alert">
+            your event is <strong>Delete!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show erroralert" role="alert">
+            your event <strong>failed!</strong>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+            <form class="col g-3 updateform" id="evModForm" method="post" action="#">
+                <h5>Event Modification</h5>
+                <div class="row-auto">
+                    <label for="evModTypeev" class="form-label">Select event</label>
+                    <select class="form-select" aria-label="Default select example" id="evModliste" required>
+
+                    </select>
+                  </div>
+                <div class="row-auto">
+                  <label for="evModTitle" class="form-label">Titre</label>
+                  <input type="text" class="form-control" id="evModTitle">
+                </div>
+                <div class="row-auto">
+                  <label for="evModDate" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="evModDate" placeholder="">
+                </div>
+                <div class="row-auto">
+                    <label for="evModDuree" class="form-label">Duree</label>
+                    <input type="number" class="form-control" id="evModDuree">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModMaxpart" class="form-label">Maximun participant</label>
+                    <input type="number" class="form-control" id="evModMaxpart">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModOrga" class="form-label">Organisation</label>
+                    <input type="text" class="form-control" id="evModOrga" placeholder="">
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModTypeev" class="form-label">Type evenement</label>
+                    <select class="form-select" aria-label="Default select example" id="evModTypeev">
+                        <option value="forum" selected>Forum</option>
+                        <option value="networking">Networking</option>
+                        <option value="formation">Formation</option>
+                    </select>
+                  </div>
+                  <div class="row-auto">
+                    <label for="evModDesc" class="form-label">Description</label>
+                    <textarea class="form-control" id="evModDesc" rows="3"></textarea>
+                  </div>
+                  <br/>
+                <div class="row-auto">
+                  <button type="submit" class="btn btn-primary mb-3" id="evUpdate">Update</button>
+                  <button type="submit" class="btn btn-danger mb-3" id="evDelete">Delete</button>
+                </div>
+              </form>
+            </div>
+        
+
+
+<!-- View part-->
+        <div id="evView">
+            <table class="table evTable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Duree</th>
+                    <th scope="col">Maximum participant</th>
+                    <th scope="col">Organisation</th>
+                    <th scope="col">Type evenement</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+        </div>  
+</div>
+</div>
+<div id="footer">
+    <span id="copyright">&copy;Copyright TSI ENSG</span>
+</div>
+
+
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
