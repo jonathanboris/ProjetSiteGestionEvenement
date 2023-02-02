@@ -1,8 +1,8 @@
 # GUIDE D'INSTALLATION
 
 ## Resume
-> Ce code source est celui d'une application de gestion d'evenement developper en java spring-boot MVC, ce document est le guide d'installation utile pour le bon deployement de la solution.
-les commandes ci-dessous sont dediees au systeme d'expoitation Linux, mais les environnements requisent reste identiques pour tout autre systeme.
+> Ce code source est celui d'une application de gestion d'evenement developper en java spring-boot MVC, ce document est un guide d'installation utile au deployement de la solution.
+les commandes ci-dessous sont dediees au systeme d'exploitation Linux, mais les environnements requisent reste identiques pour tout autres systemes.
 
 > ### Prerequis
 >> #### Java 17 :
@@ -32,7 +32,6 @@ export PATH
 ### Installation et execution
 >  - Copier le code source du projet
 >  - Configurer les parametres de connexion a votre SGBD PostgreSQL dans /src/main/resources/application.properties
-> - Creer un utilisateur dans la table login
 > - Executer cette commande dans la racine de projet: $ sudo mvn spring-boot:run
 > - Aller sur le lien http://127.0.0.1:8080
 >- login: test && password: test
